@@ -1,0 +1,161 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: registry
+      changes:
+        - createTable:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: paymentid
+                  type: BIGINT
+                  constraints:
+                     nullable: false
+              - column:
+                  name: date
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: olga
+      comment: "Create new payments"
+      changes:
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: paymentid
+                  value: 1
+              - column:
+                  name: date
+                  value: "15.05.2021"
+              - column:
+                  name: amount
+                  value: "1500"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: paymentid
+                  value: 1
+              - column:
+                  name: date
+                  value: "10.10.2021"
+              - column:
+                  name: amount
+                  value: "17000"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: paymentid
+                  value: 1
+              - column:
+                  name: date
+                  value: "06.08.2021"
+              - column:
+                  name: amount
+                  value: "48000"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: paymentid
+                  value: 2
+              - column:
+                  name: date
+                  value: "11.08.2020"
+              - column:
+                  name: amount
+                  value: "35000"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: paymentid
+                  value: 3
+              - column:
+                  name: date
+                  value: "19.10.2021"
+              - column:
+                  name: amount
+                  value: "350000"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: paymentid
+                  value: 3
+              - column:
+                  name: date
+                  value: "08.11.2021"
+              - column:
+                  name: amount
+                  value: "550000"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 7
+              - column:
+                  name: paymentid
+                  value: 4
+              - column:
+                  name: date
+                  value: "11.12.2020"
+              - column:
+                  name: amount
+                  value: "15000"
+        - insert:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  value: 8
+              - column:
+                  name: paymentid
+                  value: 4
+              - column:
+                  name: date
+                  value: "12.10.2021"
+              - column:
+                  name: amount
+                  value: "1000"
+
+      rollback:
+        - delete:
+            tableName: payments
